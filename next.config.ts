@@ -1,10 +1,24 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async headers() {
+    return [
+      {
+        source: "/reset-password",
+        headers: [
+          {
+            key: "Referrer-Policy",
+            value: "no-referrer",
+          },
+        ],
+      },
+    ];
+  },
+
   experimental: {
     agentFeedback: true,
   },
+
   turbopack: {
     rules: {
       "*.css": {

@@ -1,0 +1,9 @@
+import { ForgotPasswordForm } from "@/features/auth/components/forgot-password-form";
+
+export default function ForgotPasswordPage() {
+  return (
+    <main className="flex min-h-screen items-center justify-center bg-slate-100 px-4">
+      <ForgotPasswordForm />
+    </main>
+  );
+}

@@ -1,0 +1,85 @@
+import type { UserResponse } from "@/features/auth/types/auth";
+
+export const DEMO_ADMIN_USERS_FIXTURE: UserResponse[] = [
+  {
+    id: "1",
+    fullName: "Lê Hoàng Nam",
+    email: "lehoangnam@gmail.com",
+    phone: "0912 345 678",
+    avatarUrl: null,
+    status: "ACTIVE",
+    roles: ["CUSTOMER"],
+    createdAt: "2024-10-24T08:30:00Z",
+  },
+  {
+    id: "2",
+    fullName: "Trần Bích Thảo",
+    email: "bichthao.tran@vinhomes.vn",
+    phone: "0988 765 432",
+    avatarUrl: null,
+    status: "ACTIVE",
+    roles: ["HOTEL_OWNER"],
+    createdAt: "2024-10-22T14:15:00Z",
+  },
+  {
+    id: "3",
+    fullName: "Phạm Minh Đức",
+    email: "duc.pham@stayhub.vn",
+    phone: "0903 112 233",
+    avatarUrl: null,
+    status: "ACTIVE",
+    roles: ["ADMIN"],
+    createdAt: "2024-09-15T09:00:00Z",
+  },
+  {
+    id: "4",
+    fullName: "Nguyễn Thị Mai Lan",
+    email: "lan.nguyen89@outlook.com",
+    phone: "0974 556 778",
+    avatarUrl: null,
+    status: "PENDING",
+    roles: ["CUSTOMER"],
+    createdAt: "2024-10-24T11:20:00Z",
+  },
+  {
+    id: "5",
+    fullName: "Vũ Đình Khôi",
+    email: "khoi.vu@grandoriental.com",
+    phone: "0932 889 900",
+    avatarUrl: null,
+    status: "ACTIVE",
+    roles: ["HOTEL_OWNER"],
+    createdAt: "2024-10-18T16:45:00Z",
+  },
+  {
+    id: "6",
+    fullName: "Đỗ Thanh Hằng",
+    email: "thanhhang.do@gmail.com",
+    phone: "0945 223 344",
+    avatarUrl: null,
+    status: "INACTIVE",
+    roles: ["CUSTOMER"],
+    createdAt: "2024-10-12T10:10:00Z",
+  },
+  {
+    id: "7",
+    fullName: "Hoàng Quốc Bảo",
+    email: "baohq.partner@gmail.com",
+    phone: "0961 778 899",
+    avatarUrl: null,
+    status: "BANNED",
+    roles: ["HOTEL_OWNER"],
+    createdAt: "2024-08-05T08:00:00Z",
+  },
+  {
+    id: "8",
+    fullName: "Nguyễn Hoàng Minh Đức Triều Dương", // Very long name test
+    email:
+      "nguyenhoangminhductrieuduong.corporate.partner@international-hospitality-vietnam.com.vn", // Very long email test
+    phone: "", // Missing phone test
+    avatarUrl: null,
+    status: "ACTIVE",
+    roles: ["HOTEL_OWNER"],
+    createdAt: "2024-10-25T12:00:00Z",
+  },
+];

@@ -6,33 +6,31 @@ import { FrontendErrorCode } from "@/lib/api/frontend-error-code";
 import { saveAuthCookies } from "@/lib/auth/cookies";
 
 import type {
-    AuthenticationResponse,
-    LoginRequest,
-    LoginResult,
+  AuthenticationResponse,
+  LoginRequest,
+  LoginResult,
 } from "../types/auth";
 
-export async function loginAdmin(
-    request: LoginRequest,
-): Promise<LoginResult> {
-    const authentication = await backendRequest<AuthenticationResponse>(
-        "/api/v1/auth/login",
-        {
-            method: "POST",
-            body: JSON.stringify(request),
-        },
+export async function loginAdmin(request: LoginRequest): Promise<LoginResult> {
+  const authentication = await backendRequest<AuthenticationResponse>(
+    "/api/v1/auth/login",
+    {
+      method: "POST",
+      body: JSON.stringify(request),
+    },
+  );
+
+  if (!authentication.user.roles.includes("ADMIN")) {
+    throw new ApiError(
+      "Tài khoản không có quyền quản trị",
+      403,
+      FrontendErrorCode.ADMIN_ACCESS_DENIED,
     );
+  }
 
-    if (!authentication.user.roles.includes("ADMIN")) {
-        throw new ApiError(
-            "Tài khoản không có quyền quản trị",
-            403,
-            FrontendErrorCode.ADMIN_ACCESS_DENIED,
-        );
-    }
+  await saveAuthCookies(authentication);
 
-    await saveAuthCookies(authentication);
-
-    return {
-        user: authentication.user,
-    };
+  return {
+    user: authentication.user,
+  };
 }
